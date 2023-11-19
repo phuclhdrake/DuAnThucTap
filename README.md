@@ -108,6 +108,8 @@
  - màn Login ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/48a05ebd-e74b-46fc-8a11-755928432be8)
  - màn SignUp ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/929437cb-1a1c-4729-8c64-2abc83416425)
  - màn Home ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/572dce94-658a-4cee-99d3-a0c9ad34612a) và ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/636334b0-8fb9-4a00-bdce-c2d065cfa8bf)
+ - màn chi tiết sản phẩm ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/7e7a61fa-f769-45f7-b99d-b894e8a7ea2a)
+ - màn oder(đặt hàng) ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/2f6ab8f7-c3a8-4295-89f3-981eb4bd8047)
  - màn Cart ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/09510350-1395-4c6f-881c-b845b3712c77)
  - màn Account ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/a862089a-fdda-4236-98fa-898cd4008df3)
  - màn Account của admin ![image](https://github.com/phuclhdrake/DuAnThucTap/assets/105592184/9d238dd4-47dc-4247-8c5d-c68862d7abec)

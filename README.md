@@ -1,5 +1,6 @@
 # DuAnThucTap
 Giới thiệu
+
     - App được thiết kế và tạo dựng bởi 1 thành viên, có tham khảo thiết kế giao giện theo nhiều nguồn khác nhau.
     - App được làm gấp rút do nhóm giải tán.
     - Gmail: phucleaaee@gmail.com

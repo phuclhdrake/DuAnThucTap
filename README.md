@@ -15,7 +15,7 @@
     + Chương trình ưu đãi, blog giới thiệu các sản phẩm(chưa hoàn thiện).
       
 - Các chức năng của quản trị viên :
-    + Thực hiện đầy đủ các thao tác đăng nhập, 
+    + Thực hiện đầy đủ các thao tác đăng nhập(tk: admin, mk: 123). 
     +  Quản lý tài khoản.
     +  Quản lý sản phẩm và các danh mục sản phẩm.
     +  Quản lý đơn hàng(chưa hoàn thiện)

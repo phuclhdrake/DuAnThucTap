@@ -64,11 +64,10 @@
     - Cơ sở dữ liệu: phpMyAdmin.
  
  2. Thiết kế cơ sở dữ liệu.
-
+    
     a, Bảng "Users" (Người dùng):
     
         - userId (khóa chính)
-    
         - name
         - address
         - phone
@@ -78,6 +77,7 @@
         - roleId (khóa ngoại đến bảng "Roles")
     
      b, Bảng "Products" (Sản phẩm):
+    
         - productId (khóa chính)
         - name
         - description
@@ -87,11 +87,13 @@
         - quantity
     
      c, Bảng "Categories" (Danh mục sản phẩm):
+    
         - categoryId (khóa chính)
         - name
         - imageUrl
     
      d, Bảng "Orders" (Đơn hàng):
+    
         - orderId (khóa chính)
         - userId (khóa ngoại đến bảng "Users")
         - orderDate
@@ -99,10 +101,12 @@
         - statusId (khóa ngoại đến bảng "OrderStatus")
     
      e, Bảng "Roles" (Vai trò):
+    
         - roleId (khóa chính)
         - role (ví dụ: admin, user, guest)
     
      f, Bảng "OrderStatus" (Trạng thái đơn hàng):
+    
         - statusId (khóa chính)
         - status (ví dụ: pending, processing, shipped, completed, cancelled)
     

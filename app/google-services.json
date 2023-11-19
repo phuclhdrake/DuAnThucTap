@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "756498746121",
+    "project_id": "duanthuctap-73205",
+    "storage_bucket": "duanthuctap-73205.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756498746121:android:dbb8f669209d607079a1d8",
+        "android_client_info": {
+          "package_name": "com.example.ASM"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIPgwekqnx4IKrxMRQIBhgQ76XgTkxbyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

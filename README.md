@@ -63,7 +63,7 @@
     - Ứng dụng di động: Android Java.
     - Cơ sở dữ liệu: phpMyAdmin.
  
- 2. Thiết kế cơ sở dữ liệu:
+ 2. Thiết kế cơ sở dữ liệu.
     a, Bảng "Users" (Người dùng):
         - userId (khóa chính)
         - name

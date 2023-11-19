@@ -13,6 +13,7 @@ import com.example.asm.fragment.FragmentCart;
 import com.example.asm.fragment.FragmentHome;
 import com.example.asm.fragment.FragmentPerson;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AlertDialog;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -66,5 +67,32 @@ public class MainActivity extends AppCompatActivity {
             Log.e("code", requestCode + "aaaaa");
             fragmentManager.beginTransaction().replace(R.id.fragmnet_context, FragmentHome.newInstance(null, null)).commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        // Kiểm tra xem người dùng đang ở màn hình nào
+        if (bottomNavigationView.getSelectedItemId() == R.id.nav_Home
+                || bottomNavigationView.getSelectedItemId() == R.id.nav_Cart
+                || bottomNavigationView.getSelectedItemId() == R.id.nav_Person) {
+            showExitDialog();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void showExitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Thoát ứng dụng");
+        builder.setMessage("Bạn có muốn thoát ứng dụng không?");
+        builder.setPositiveButton("Có", (dialog, which) -> {
+            finish(); // Đóng ứng dụng
+        });
+        builder.setNegativeButton("Không", (dialog, which) -> {
+            dialog.dismiss(); // Đóng hộp thoại
+        });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

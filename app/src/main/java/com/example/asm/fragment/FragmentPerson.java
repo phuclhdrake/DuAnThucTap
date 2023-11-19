@@ -1,5 +1,6 @@
 package com.example.asm.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 public class FragmentPerson extends Fragment {
 
     ProgressBar progressBar;
-    Button btnAdmin;
+    Button btnAdmin, btnLogout, btnEditPass;
     TextView txtUserName;
     int id;
     String name;
@@ -63,6 +64,7 @@ public class FragmentPerson extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -80,6 +82,28 @@ public class FragmentPerson extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AdminActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnLogout = view.findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Xóa thông tin đăng nhập
+                clearLoginInfo();
+
+                // Chuyển người dùng về màn hình đăng nhập
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                startActivity(intent);
+                getActivity().finish();
+            }
+        });
+
+        btnEditPass = view.findViewById(R.id.btnEditPass);
+        btnEditPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
 
@@ -159,6 +183,14 @@ public class FragmentPerson extends Fragment {
         progressBar.setVisibility(View.GONE);
     }
 
+    private void clearLoginInfo() {
+        // Sử dụng getActivity() thay vì getContext()
+        SharedPreferences prefs = getActivity().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.remove("username");
+        // Xóa tất cả các thông tin đăng nhập khác nếu cần
+        editor.apply();
+    }
 
 }
 

@@ -1,6 +1,5 @@
 package com.example.asm.adapter;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +16,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog.Builder;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -73,8 +74,8 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ItemHold
             public void onClick(View v) {
                 // xoa o day
                 productId = sanpham.getId();
-                deleteProductVolley(productId);
-//                showDialogConfirmation();
+                deleteProductVolley(productId, position);
+                //showDeleteDialog(position);
             }
         });
 
@@ -119,7 +120,7 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ItemHold
         }
     }
 
-    private void deleteProductVolley(int productId) {
+    private void deleteProductVolley(int productId, int position) {
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = Server.delete_product;
         StringRequest request = new StringRequest(Request.Method.POST, url,
@@ -127,6 +128,7 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ItemHold
                     @Override
                     public void onResponse(String response) {
                         CheckConnect.ShowToast_Short(context,"Xóa thành công id: " +productId);
+                        removeItem(position); // Loại bỏ sản phẩm khỏi danh sách
                         notifyDataSetChanged();
                     }
                 }, new Response.ErrorListener() {
@@ -146,23 +148,32 @@ public class SanphamAdapter extends RecyclerView.Adapter<SanphamAdapter.ItemHold
         queue.add(request);
     }
 
-    private void showDialogConfirmation() {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context.getApplicationContext());
-        dialogBuilder.setMessage("Are you sure you want to continue?");
-        dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+    private void showDeleteDialog(int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Xóa sản phẩm");
+        builder.setMessage("Bạn có muốn xóa sản phẩm này không?");
+        builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Perform the "Yes" action here
+                deleteProductVolley(productId, position);
             }
         });
-        dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                // Perform the "No" action here
+                dialog.dismiss();
             }
         });
-        AlertDialog dialog = dialogBuilder.create();
-        dialog.show();
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+
+    public void removeItem(int position) {
+        arrayListSanpham.remove(position);
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, arrayListSanpham.size());
     }
 
 }

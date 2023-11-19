@@ -1,5 +1,6 @@
 package com.example.asm.activity;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,14 +50,7 @@ public class AdminActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin);
 
         anhXa();
-//        if (CheckConnect.haveNetworkConnection(getApplicationContext())){
-//            // co ket noi internet
-//            CheckConnect.ShowToast_Short(getApplicationContext(), "Loading...");
-//            getDuLieuSP();
-//        }else {
-//            CheckConnect.ShowToast_Short(getApplicationContext(), "Không có kết nối internet !");
-//            finish();
-//        }
+
         // chuyen sang man hinh them sp
         imgGoAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +59,17 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 999 && resultCode == RESULT_OK) {
+            int position = data.getIntExtra("position", -1);
+            if (position != -1) {
+                sanphamAdapter.removeItem(position);
+            }
+        }
     }
 
     private void getDuLieuSP() {
@@ -133,4 +138,7 @@ public class AdminActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
+
 }

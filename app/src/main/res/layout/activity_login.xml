@@ -30,7 +30,6 @@
         android:layout_height="56dp"
         android:background="@drawable/circle_bg"
         android:hint="User"
-        android:text="user1"
         android:inputType="text"
         android:padding="15dp" />
 
@@ -42,7 +41,6 @@
         android:layout_marginTop="25dp"
         android:background="@drawable/circle_bg"
         android:hint="Password"
-        android:text="1"
         android:inputType="textPassword" />
 
     <Button

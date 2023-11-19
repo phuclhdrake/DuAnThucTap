@@ -9,6 +9,8 @@ Giới thiệu
     - PL SHOPS là 1 ứng dụng mua sắm điện thoại và laptop được phân quyền sử dụng user và admin.
     
     - PL SHOPS được xây dựng trên Android Studio băng ngôn ngữ java, dữ liệu của app được lưu trên 000Webhost.com bằng phpMyAdmin.
+
+Thiết kế giao diện bằng figma: https://www.figma.com/file/PGoX9eqg4Ptskw6MnrvtjL/Untitled?type=design&node-id=0%3A1&mode=design&t=dEYQRpJWOZQzhXGD-1
     
     - Các chức năng của người dùng :
         + Thực hiện đầy đủ các thao tác đăng nhập, đăng ký, quản lý thông tin cá nhân.

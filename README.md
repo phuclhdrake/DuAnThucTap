@@ -64,7 +64,7 @@
     - Cơ sở dữ liệu: phpMyAdmin.
  
  2. Thiết kế cơ sở dữ liệu:
-     A. Bảng "Users" (Người dùng):
+    A. Bảng "Users" (Người dùng):
         - userId (khóa chính)
         - name
         - address

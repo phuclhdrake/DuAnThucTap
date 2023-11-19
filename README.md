@@ -66,7 +66,9 @@
  2. Thiết kế cơ sở dữ liệu.
 
     a, Bảng "Users" (Người dùng):
+    
         - userId (khóa chính)
+    
         - name
         - address
         - phone

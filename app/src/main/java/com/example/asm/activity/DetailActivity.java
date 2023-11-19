@@ -20,6 +20,8 @@ public class DetailActivity extends AppCompatActivity {
     ImageView imgHinhanhsp;
     TextView txtTensp, txtGiasp, txtMotasp;
 
+    String name, price, desc, image;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,10 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         Bundle extras = intent.getExtras();
-        String name = extras.getString("tensanpham");
-        String price = extras.getString("giasanpham");
-        String desc = extras.getString("motasanpham");
-        String image = extras.getString("hinhanhsanpham");
+        name = extras.getString("tensanpham");
+        price = extras.getString("giasanpham");
+        desc = extras.getString("motasanpham");
+        image = extras.getString("hinhanhsanpham");
 
         txtTensp.setText(name);
         txtGiasp.setText(price);
@@ -54,9 +56,15 @@ public class DetailActivity extends AppCompatActivity {
         btnMua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DetailActivity.this, OrderActivity.class);
-                startActivity(intent);
-                /////demo
+                Intent orderIntent = new Intent(DetailActivity.this, OrderActivity.class);
+
+                // Đính kèm dữ liệu vào Intent
+                orderIntent.putExtra("tensanpham", txtTensp.getText().toString());
+                orderIntent.putExtra("giasanpham", txtGiasp.getText().toString());
+                orderIntent.putExtra("motasanpham", txtMotasp.getText().toString());
+                orderIntent.putExtra("hinhanhsanpham", image);
+
+                startActivity(orderIntent);
             }
         });
 
